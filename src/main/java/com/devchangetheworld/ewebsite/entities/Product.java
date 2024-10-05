@@ -26,7 +26,8 @@ public class Product {
     private BigDecimal price;
     private int inventory;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    //Check again the cascade in those many
+    @ManyToOne(fetch = FetchType.LAZY, optional = false ,cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 

@@ -24,7 +24,7 @@ public class Image {
     private String fileType;
 
     @Lob
-    private Lob image;
+    private Blob image;
 
     private String dowloadUrl;
 
