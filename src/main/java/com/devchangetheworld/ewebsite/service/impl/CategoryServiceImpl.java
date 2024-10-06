@@ -55,7 +55,7 @@ public class CategoryServiceImpl implements CategoryService {
                 .orElseThrow(() -> new ResourceNotFoundException("category", "id", id));
         oldCategory.setName(category.getName());
         return autoCategoryMapper.toResponseDTO(categoryRepository.save(oldCategory));
-        
+
     }
 
     @Override

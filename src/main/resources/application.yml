@@ -1,3 +1,6 @@
 paging:
   default-page-size: 10
   default-page-number: 0
+
+api:
+  prefix: api/v1

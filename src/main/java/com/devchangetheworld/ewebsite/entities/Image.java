@@ -26,7 +26,7 @@ public class Image {
     @Lob
     private Blob image;
 
-    private String dowloadUrl;
+    private String downloadUrl;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "product_id", nullable = false)
