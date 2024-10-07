@@ -226,6 +226,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+/target/**
+
 # End of https://www.toptal.com/developers/gitignore/api/intellij,windows,java
 src/main/resources/application.properties
 target/classes/application.properties
