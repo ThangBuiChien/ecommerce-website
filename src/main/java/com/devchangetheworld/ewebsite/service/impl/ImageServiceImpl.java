@@ -89,7 +89,7 @@ public class ImageServiceImpl implements ImageService {
 
     private void updateImageDetails(MultipartFile file, Image image) throws IOException, SQLException {
         image.setFileName(file.getOriginalFilename());
-        image.setFileType(file.getContentType());
+        image.setFileType(file.getContentType());   
         image.setImage(new SerialBlob(file.getBytes()));
     }
 }

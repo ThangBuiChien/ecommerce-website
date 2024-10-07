@@ -227,3 +227,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij,windows,java
+src/main/resources/application.properties
+target/classes/application.properties
+src/main/resources/application.yml

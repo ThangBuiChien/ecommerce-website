@@ -35,7 +35,7 @@ public class ImageController {
 
     }
 
-    //To display, just change header of ResponseEntity
+    //To display instead of downloading, just change header of ResponseEntity
     @GetMapping("/download/{imageId}")
     public ResponseEntity<Resource> downloadImage(@PathVariable Long imageId) throws SQLException {
         Image image = imageService.getImageById(imageId);
