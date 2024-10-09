@@ -7,7 +7,7 @@ import com.devchangetheworld.ewebsite.entities.Product;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring", uses = {MapperService.class})
+@Mapper(componentModel = "spring", uses = {MapperService.class, AutoMapperPicture.class})
 public interface AutoProductMapper {
 
     @Mapping(target = "category", source = "categoryName")

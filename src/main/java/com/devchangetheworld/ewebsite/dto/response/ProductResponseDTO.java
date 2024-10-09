@@ -19,5 +19,5 @@ public class ProductResponseDTO {
     private BigDecimal price;
     private int inventory;
     private String categoryName;
-    private List<Image> images;
+    private List<ImageResponseDTO> images;
 }
