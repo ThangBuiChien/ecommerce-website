@@ -1,5 +1,6 @@
 package com.devchangetheworld.ewebsite.service;
 
+import com.devchangetheworld.ewebsite.dto.ProductSearchCriteria;
 import com.devchangetheworld.ewebsite.dto.request.AddProductRequestDTO;
 import com.devchangetheworld.ewebsite.dto.request.UpdateProductRequestDTO;
 import com.devchangetheworld.ewebsite.dto.response.ProductResponseDTO;
@@ -23,4 +24,6 @@ public interface ProductService {
     List<ProductResponseDTO> getAllProduct();
 
     Page<ProductResponseDTO> getAllProductPageable(Pageable pageable);
+
+    Page<ProductResponseDTO> searchProducts(ProductSearchCriteria criteria, Pageable pageable);
 }

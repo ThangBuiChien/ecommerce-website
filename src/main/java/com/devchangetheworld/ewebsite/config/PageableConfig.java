@@ -3,6 +3,7 @@ package com.devchangetheworld.ewebsite.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -22,13 +23,21 @@ public class PageableConfig implements WebMvcConfigurer {
     @Value("${paging.default-page-number:0}")
     private int defaultPageNumber;
 
+    @Value("${paging.default-sort-by:'id'}")
+    private String sortBy;
+
+    @Value("${paging.default-sort-dir:'DESC'}")
+    private String sortDir;
+
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
         PageableHandlerMethodArgumentResolver resolver = new PageableHandlerMethodArgumentResolver();
         resolver.setPageParameterName("page");
         resolver.setSizeParameterName("size");
         resolver.setOneIndexedParameters(false);
-        resolver.setFallbackPageable(PageRequest.of(defaultPageNumber, defaultPageSize));
+
+        Sort defaultSort = Sort.by(Sort.Direction.fromString(sortDir), sortBy);
+        resolver.setFallbackPageable(PageRequest.of(defaultPageNumber, defaultPageSize, defaultSort));
         argumentResolvers.add(resolver);
     }
 }

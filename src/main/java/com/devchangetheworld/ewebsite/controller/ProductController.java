@@ -1,12 +1,16 @@
 package com.devchangetheworld.ewebsite.controller;
 
+import com.devchangetheworld.ewebsite.dto.ProductSearchCriteria;
 import com.devchangetheworld.ewebsite.dto.request.AddProductRequestDTO;
 import com.devchangetheworld.ewebsite.dto.request.UpdateProductRequestDTO;
 import com.devchangetheworld.ewebsite.dto.response.ApiResponse;
 import com.devchangetheworld.ewebsite.dto.response.ProductResponseDTO;
 import com.devchangetheworld.ewebsite.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -55,6 +59,18 @@ public class ProductController {
         return ResponseEntity.ok(ApiResponse.builder()
                 .message("Product got successfully")
                 .result(productService.getAllProductPageable(pageable))
+                .build());
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<ApiResponse> searchProducts(
+            ProductSearchCriteria criteria,
+            Pageable pageable) {
+
+        Page<ProductResponseDTO> products = productService.searchProducts(criteria, pageable);
+        return ResponseEntity.ok(ApiResponse.builder()
+                .message("Search/filter product successfully")
+                .result(products)
                 .build());
     }
 
