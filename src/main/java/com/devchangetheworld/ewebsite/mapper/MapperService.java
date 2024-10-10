@@ -1,8 +1,10 @@
 package com.devchangetheworld.ewebsite.mapper;
 
 import com.devchangetheworld.ewebsite.entities.Category;
+import com.devchangetheworld.ewebsite.entities.Product;
 import com.devchangetheworld.ewebsite.exception.ResourceNotFoundException;
 import com.devchangetheworld.ewebsite.repository.CategoryRepository;
+import com.devchangetheworld.ewebsite.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +19,8 @@ public class MapperService {
 
     private final CategoryRepository categoryRepository;
 
+    private final ProductRepository productRepository;
+
 
     public Category findCategoryByName(String name){
         //find by name or created if not existed
@@ -27,5 +31,10 @@ public class MapperService {
                     category.setName(name);
                     return categoryRepository.save((category));
                 });
+    }
+
+    public Product findProductById(Long productId){
+        return productRepository.findById(productId)
+                .orElseThrow(() -> new ResourceNotFoundException("product", "id", productId));
     }
 }
