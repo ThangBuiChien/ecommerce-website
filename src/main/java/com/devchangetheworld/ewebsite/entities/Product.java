@@ -27,7 +27,9 @@ public class Product {
     private int inventory;
 
     //Check again the cascade in those many
-    @ManyToOne(fetch = FetchType.LAZY, optional = false ,cascade = CascadeType.ALL)
+    //cascade = CascadeType.ALL in Many side is so wrong
+    //delete it ==> delete parent size (if orphan remove then it remove all)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false /*,cascade = CascadeType.ALL*/)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
