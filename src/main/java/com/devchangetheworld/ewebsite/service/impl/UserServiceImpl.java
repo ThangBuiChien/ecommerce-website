@@ -8,6 +8,7 @@ import com.devchangetheworld.ewebsite.mapper.AutoUserMapper;
 import com.devchangetheworld.ewebsite.repository.UserRepository;
 import com.devchangetheworld.ewebsite.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final AutoUserMapper autoUserMapper;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public UserResponseDTO getById(Long userId) {
@@ -24,7 +26,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponseDTO createUser(AddUserRequestDTO addUserRequestDTO) {
-        User newUser = autoUserMapper.toEntity(addUserRequestDTO);
+        User newUser = new User();
+        newUser.setFirstName(addUserRequestDTO.getFirstName());
+        newUser.setLastName(addUserRequestDTO.getLastName());
+        newUser.setEmail(addUserRequestDTO.getEmail());
+        newUser.setPassword(passwordEncoder.encode(addUserRequestDTO.getPassword()));
+//        User newUser = autoUserMapper.toEntity(addUserRequestDTO);
         return autoUserMapper.toResponse(userRepository.save(newUser));
     }
 }
