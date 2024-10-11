@@ -23,8 +23,13 @@ public class Cart {
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<CartItem> cartItem;
 
+    @OneToOne(optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     public void addCartItem(CartItem cartItem){
         this.cartItem.add(cartItem);
+        cartItem.setCart(this);
         updateTotalAmount();
     }
 
@@ -46,8 +51,4 @@ public class Cart {
         }).reduce(BigDecimal.ZERO, BigDecimal::add);
 
     }
-
-//    private Long id;
-//    private BigDecimal totalAmount;
-//    private CartItem cartItem;
 }
