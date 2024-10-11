@@ -16,6 +16,14 @@ public class OrderController {
 
     private final OrderService orderService;
 
+    @GetMapping("/{id}")
+    public ResponseEntity<ApiResponse> getCartById(@PathVariable Long id){
+        return ResponseEntity.ok(ApiResponse.builder()
+                .message("Order get by id successfully")
+                .result(orderService.getOrderById(id))
+                .build());
+    }
+
     @PostMapping("/{id}")
     public ResponseEntity<ApiResponse> addCart(@PathVariable Long id, @RequestBody Set<AddOrderItemRequestDTO> orderItemRequestDTO){
         return ResponseEntity.ok(ApiResponse.builder()
@@ -24,4 +32,11 @@ public class OrderController {
                 .build());
     }
 
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<ApiResponse> getAllCartsByUserId(@PathVariable Long userId){
+        return ResponseEntity.ok(ApiResponse.builder()
+                .message("Order get by user's id successfully")
+                .result(orderService.getAllOrdersByUser(userId))
+                .build());
+    }
 }
