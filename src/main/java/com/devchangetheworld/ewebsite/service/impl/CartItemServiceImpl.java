@@ -54,7 +54,7 @@ public class CartItemServiceImpl implements CartItemService {
                 .orElseThrow(() -> new ResourceNotFoundException("cart", "cartId", cartId));
         CartItem cartItem = getCartItem(cartId, productId);
         cart.removeCartItem(cartItem);
-        cartRepository.save(cart); // Orphan remove so just delete the relationship to their parent, cartItem is auto deleted
+        cartRepository.save(cart); // Cascade.ALL so it will cascade it item and delete it
 
     }
 

@@ -80,11 +80,18 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderResponseDTO getOrderById(Long orderId) {
-        return null;
+        return orderRepository.findById(orderId).map(autoOrderMapper::toResponseDTO)
+                .orElseThrow(() -> new ResourceNotFoundException("order", "id", orderId));
     }
 
     @Override
-    public OrderResponseDTO getAllOrdersByUser(Long userId) {
-        return null;
+    public List<OrderResponseDTO> getAllOrdersByUser(Long userId) {
+        userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("user", "id", userId));
+
+        return orderRepository.findAllByUserId(userId).stream()
+                .map(autoOrderMapper::toResponseDTO)
+                .toList();
+
     }
 }
