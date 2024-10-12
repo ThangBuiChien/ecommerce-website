@@ -17,7 +17,7 @@ public class OrderController {
     private final OrderService orderService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse> getCartById(@PathVariable Long id){
+    public ResponseEntity<ApiResponse> getOrderById(@PathVariable Long id){
         return ResponseEntity.ok(ApiResponse.builder()
                 .message("Order get by id successfully")
                 .result(orderService.getOrderById(id))
@@ -25,7 +25,7 @@ public class OrderController {
     }
 
     @PostMapping("/{id}")
-    public ResponseEntity<ApiResponse> addCart(@PathVariable Long id, @RequestBody Set<AddOrderItemRequestDTO> orderItemRequestDTO){
+    public ResponseEntity<ApiResponse> addOrder(@PathVariable Long id, @RequestBody Set<AddOrderItemRequestDTO> orderItemRequestDTO){
         return ResponseEntity.ok(ApiResponse.builder()
                 .message("Order created successfully")
                 .result(orderService.placeOrder(id, orderItemRequestDTO))
@@ -33,7 +33,7 @@ public class OrderController {
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<ApiResponse> getAllCartsByUserId(@PathVariable Long userId){
+    public ResponseEntity<ApiResponse> getAllOrdersByUserId(@PathVariable Long userId){
         return ResponseEntity.ok(ApiResponse.builder()
                 .message("Order get by user's id successfully")
                 .result(orderService.getAllOrdersByUser(userId))
