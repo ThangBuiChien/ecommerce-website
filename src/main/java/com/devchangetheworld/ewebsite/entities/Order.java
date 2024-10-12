@@ -26,6 +26,8 @@ public class Order {
     private BigDecimal totalAmount;
     private OrderStatus orderStatus;
 
+    private Long payId;
+
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<OrderItem> orderItems = new HashSet<>();
 

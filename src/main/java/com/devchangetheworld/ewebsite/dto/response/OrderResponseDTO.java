@@ -18,5 +18,7 @@ public class OrderResponseDTO {
     private OrderStatus orderStatus;
     private Set<OrderItemResponseDTO> orderItems;
 
+    private Long payId;
+
     private Long userId;
 }

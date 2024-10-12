@@ -8,5 +8,5 @@ import lombok.Setter;
 public class TransactionStatusResponseDTO {
     String status;
     String message;
-    String data;
+    Object data;
 }
