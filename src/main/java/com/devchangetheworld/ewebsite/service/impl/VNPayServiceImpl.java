@@ -1,22 +1,18 @@
 package com.devchangetheworld.ewebsite.service.impl;
 
-import com.devchangetheworld.ewebsite.config.Config;
+import com.devchangetheworld.ewebsite.config.PaymentConfig;
 import com.devchangetheworld.ewebsite.dto.request.PaymentRequestDTO;
 import com.devchangetheworld.ewebsite.dto.response.TransactionStatusResponseDTO;
 import com.devchangetheworld.ewebsite.entities.Order;
 import com.devchangetheworld.ewebsite.enums.OrderStatus;
 import com.devchangetheworld.ewebsite.exception.ResourceNotFoundException;
 import com.devchangetheworld.ewebsite.mapper.AutoOrderMapper;
-import com.devchangetheworld.ewebsite.repository.CartRepository;
 import com.devchangetheworld.ewebsite.repository.OrderRepository;
 import com.devchangetheworld.ewebsite.service.VNPayService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
@@ -51,10 +47,10 @@ public class VNPayServiceImpl implements VNPayService {
         long amount = order.getTotalAmount().multiply(BigDecimal.valueOf(100)).longValue();
         String bankCode = "NCB";
 
-        String vnp_TxnRef = Config.getRandomNumber(8);
+        String vnp_TxnRef = PaymentConfig.getRandomNumber(8);
 //        String vnp_IpAddr = Config.getIpAddress(req);
 
-        String vnp_TmnCode = Config.vnp_TmnCode;
+        String vnp_TmnCode = PaymentConfig.vnp_TmnCode;
 
         Map<String, String> vnp_Params = new HashMap<>();
         vnp_Params.put("vnp_Version", vnp_Version);
@@ -76,8 +72,8 @@ public class VNPayServiceImpl implements VNPayService {
         } else {
             vnp_Params.put("vnp_Locale", "vn");
         }
-        vnp_Params.put("vnp_ReturnUrl", Config.vnp_ReturnUrl);
-        vnp_Params.put("vnp_IpAddr", Config.getIpAddress(req));
+        vnp_Params.put("vnp_ReturnUrl", PaymentConfig.vnp_ReturnUrl);
+        vnp_Params.put("vnp_IpAddr", PaymentConfig.getIpAddress(req));
 
         Calendar cld = Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT+7"));
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
@@ -112,9 +108,9 @@ public class VNPayServiceImpl implements VNPayService {
             }
         }
         String queryUrl = query.toString();
-        String vnp_SecureHash = Config.hmacSHA512(Config.secretKey, hashData.toString());
+        String vnp_SecureHash = PaymentConfig.hmacSHA512(PaymentConfig.secretKey, hashData.toString());
         queryUrl += "&vnp_SecureHash=" + vnp_SecureHash;
-        String paymentUrl = Config.vnp_PayUrl + "?" + queryUrl;
+        String paymentUrl = PaymentConfig.vnp_PayUrl + "?" + queryUrl;
 
         PaymentRequestDTO paymentRequestDTO = new PaymentRequestDTO();
         paymentRequestDTO.setStatus("OK");

@@ -1,9 +1,6 @@
 package com.devchangetheworld.ewebsite.controller;
 
-import com.devchangetheworld.ewebsite.config.Config;
-import com.devchangetheworld.ewebsite.dto.request.PaymentAmountRequestDTO;
 import com.devchangetheworld.ewebsite.dto.request.PaymentRequestDTO;
-import com.devchangetheworld.ewebsite.dto.response.ApiResponse;
 import com.devchangetheworld.ewebsite.dto.response.TransactionStatusResponseDTO;
 import com.devchangetheworld.ewebsite.service.VNPayService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,11 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.UnsupportedEncodingException;
-import java.math.BigDecimal;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
-import java.text.SimpleDateFormat;
-import java.util.*;
 
 @RestController
 @RequiredArgsConstructor
