@@ -12,6 +12,7 @@ import com.devchangetheworld.ewebsite.mapper.AutoOrderMapper;
 import com.devchangetheworld.ewebsite.repository.OrderItemRepository;
 import com.devchangetheworld.ewebsite.repository.OrderRepository;
 import com.devchangetheworld.ewebsite.repository.UserRepository;
+import com.devchangetheworld.ewebsite.service.EmailService;
 import com.devchangetheworld.ewebsite.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -33,6 +34,8 @@ public class OrderServiceImpl implements OrderService {
     private final AutoOrderItemMapper autoOrderItemMapper;
     private final AutoOrderMapper autoOrderMapper;
 
+    private final EmailService emailService;
+
     @Transactional
     @Override
     public OrderResponseDTO placeOrder(Long userId, Set<AddOrderItemRequestDTO> orderItemRequestDTOS) {
@@ -46,7 +49,14 @@ public class OrderServiceImpl implements OrderService {
         order.setOrderItems(orderItems);
         order.setTotalAmount(calculateTotalAmount(orderItems));
 
-        return autoOrderMapper.toResponseDTO(orderRepository.save(order));
+        orderRepository.save(order);
+
+        // Send email notification
+        emailService.sendSimpleEmail(user.getEmail(),
+                "Order Confirmation",
+                "Your order has been placed successfully! with Id:" + order.getId());
+
+        return autoOrderMapper.toResponseDTO(order);
 
     }
 
