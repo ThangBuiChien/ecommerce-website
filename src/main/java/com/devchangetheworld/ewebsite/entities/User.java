@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.NaturalId;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -41,6 +42,9 @@ public class User {
     inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
     private Collection<Role> roles = new HashSet<>();
+
+    @ManyToMany(mappedBy = "participants")
+    private List<ChatRoom> chatRooms = new ArrayList<>();
 
 
     public User() {
