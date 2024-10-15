@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Chat Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+</head>
+<body>
+<div id="chat-page">
+    <div>
+        <input type="text" id="username" placeholder="Your name">
+        <button onclick="connect()">Connect</button>
+    </div>
+    <div>
+        <input type="text" id="roomName" placeholder="Room name">
+        <input type="text" id="userIds" placeholder="User IDs (comma-separated)">
+        <button onclick="createChatRoom()">Create Chat Room</button>
+    </div>
+    <div>
+        <input type="text" id="roomId" placeholder="Room ID">
+        <button onclick="joinRoom()">Join Room</button>
+    </div>
+    <div>
+        <input type="text" id="message" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <ul id="messageArea"></ul>
+</div>
+
+<script>
+    let stompClient = null;
+    let currentRoomId = null;
+
+    function connect() {
+        let socket = new SockJS('/chat');
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, onConnected, onError);
+    }
+
+    function onConnected() {
+        console.log('Connected to WebSocket');
+        stompClient.subscribe('/topic/chatRooms', onChatRoomCreated);
+        stompClient.subscribe('/user/queue/messages', onChatHistoryReceived);
+    }
+
+    function onError(error) {
+        console.log('Error: ' + error);
+    }
+
+    function createChatRoom() {
+        let roomName = document.getElementById('roomName').value;
+        let userIds = document.getElementById('userIds').value.split(',').map(id => parseInt(id.trim()));
+        stompClient.send("/app/createChatRoom", {}, JSON.stringify({roomName: roomName, userIds: userIds}));
+    }
+
+    function onChatRoomCreated(payload) {
+        let chatRoom = JSON.parse(payload.body);
+        console.log('Chat room created:', chatRoom);
+        let messageArea = document.getElementById('messageArea');
+        messageArea.innerHTML += '<li>Chat room created: ' + chatRoom.roomName + ' (ID: ' + chatRoom.id + ')</li>';
+    }
+
+    function joinRoom() {
+        currentRoomId = document.getElementById('roomId').value;
+        let username = document.getElementById('username').value;
+        stompClient.send("/app/joinRoom", {}, JSON.stringify({roomId: parseInt(currentRoomId), userId: parseInt(username)}));
+        stompClient.subscribe('/topic/room.' + currentRoomId, onMessageReceived);
+    }
+
+    function onChatHistoryReceived(payload) {
+        let chatHistory = JSON.parse(payload.body);
+        let messageArea = document.getElementById('messageArea');
+        messageArea.innerHTML = '';
+        chatHistory.forEach(message => {
+            messageArea.innerHTML += '<li>' + message.sender + ': ' + message.content + '</li>';
+        });
+    }
+
+    function sendMessage() {
+        let messageContent = document.getElementById('message').value;
+        let username = document.getElementById('username').value;
+        if (messageContent && stompClient) {
+            let chatMessage = {
+                sender: username,
+                content: messageContent,
+                chatRoom: {id: currentRoomId}
+            };
+            stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
+            document.getElementById('message').value = '';
+        }
+    }
+
+    function onMessageReceived(payload) {
+        let message = JSON.parse(payload.body);
+        let messageArea = document.getElementById('messageArea');
+        messageArea.innerHTML += '<li>' + message.sender + ': ' + message.content + '</li>';
+    }
+</script>
+</body>
+</html>
