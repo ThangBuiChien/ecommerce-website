@@ -15,6 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,6 +28,8 @@ public class ProductServiceImpl implements ProductService {
     private final AutoProductMapper autoProductMapper;
 
     private final ProductSpecification productSpecification;
+
+    @Transactional
     @Override
     public ProductResponseDTO createProduct(AddProductRequestDTO productRequestDTO) {
         Product product = autoProductMapper.toEntity(productRequestDTO);

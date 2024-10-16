@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -29,10 +30,10 @@ public class Product {
     //Check again the cascade in those many
     //cascade = CascadeType.ALL in Many side is so wrong
     //delete it ==> delete parent size (if orphan remove then it remove all)
-    @ManyToOne(fetch = FetchType.LAZY, optional = false /*,cascade = CascadeType.ALL*/)
+    @ManyToOne(/*fetch = FetchType.LAZY,*/ optional = false /*,cascade = CascadeType.ALL*/)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Image> images;
+    private List<Image> images = new ArrayList<>();
 }
