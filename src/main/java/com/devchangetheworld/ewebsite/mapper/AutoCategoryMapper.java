@@ -1,6 +1,6 @@
 package com.devchangetheworld.ewebsite.mapper;
 
-import com.devchangetheworld.ewebsite.dto.response.CategoryResponseDTO;
+import com.devchangetheworld.ewebsite.dto.product.CategoryResponseDTO;
 import com.devchangetheworld.ewebsite.entities.Category;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

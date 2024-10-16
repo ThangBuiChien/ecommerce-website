@@ -1,6 +1,6 @@
 package com.devchangetheworld.ewebsite.mapper;
 
-import com.devchangetheworld.ewebsite.dto.response.CartResponseDTO;
+import com.devchangetheworld.ewebsite.dto.cart.CartResponseDTO;
 import com.devchangetheworld.ewebsite.entities.Cart;
 import org.mapstruct.Mapper;
 

@@ -1,6 +1,6 @@
 package com.devchangetheworld.ewebsite.service.impl;
 
-import com.devchangetheworld.ewebsite.dto.response.CategoryResponseDTO;
+import com.devchangetheworld.ewebsite.dto.product.CategoryResponseDTO;
 import com.devchangetheworld.ewebsite.entities.Category;
 import com.devchangetheworld.ewebsite.exception.ResourceAlreadyExitException;
 import com.devchangetheworld.ewebsite.exception.ResourceNotFoundException;
@@ -12,7 +12,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 

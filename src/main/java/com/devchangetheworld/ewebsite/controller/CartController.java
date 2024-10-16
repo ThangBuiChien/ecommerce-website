@@ -1,8 +1,6 @@
 package com.devchangetheworld.ewebsite.controller;
 
-import com.devchangetheworld.ewebsite.dto.request.AddProductRequestDTO;
-import com.devchangetheworld.ewebsite.dto.response.ApiResponse;
-import com.devchangetheworld.ewebsite.entities.Cart;
+import com.devchangetheworld.ewebsite.dto.api_response.ApiResponse;
 import com.devchangetheworld.ewebsite.service.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

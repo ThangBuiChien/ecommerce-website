@@ -1,8 +1,7 @@
 package com.devchangetheworld.ewebsite.service;
 
-import com.devchangetheworld.ewebsite.dto.request.AddOrderItemRequestDTO;
-import com.devchangetheworld.ewebsite.dto.response.OrderResponseDTO;
-import com.devchangetheworld.ewebsite.entities.Order;
+import com.devchangetheworld.ewebsite.dto.order.AddOrderItemRequestDTO;
+import com.devchangetheworld.ewebsite.dto.order.OrderResponseDTO;
 
 import java.util.List;
 import java.util.Set;

@@ -1,6 +1,6 @@
 package com.devchangetheworld.ewebsite.service;
 
-import com.devchangetheworld.ewebsite.dto.response.CategoryResponseDTO;
+import com.devchangetheworld.ewebsite.dto.product.CategoryResponseDTO;
 import com.devchangetheworld.ewebsite.entities.Category;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

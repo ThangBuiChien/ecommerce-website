@@ -1,10 +1,8 @@
 package com.devchangetheworld.ewebsite.controller;
 
-import com.devchangetheworld.ewebsite.dto.request.AddOrderItemRequestDTO;
-import com.devchangetheworld.ewebsite.dto.request.ChatRoomRequest;
-import com.devchangetheworld.ewebsite.dto.response.ApiResponse;
+import com.devchangetheworld.ewebsite.dto.chat_room.ChatRoomRequest;
+import com.devchangetheworld.ewebsite.dto.api_response.ApiResponse;
 import com.devchangetheworld.ewebsite.entities.ChatMessage;
-import com.devchangetheworld.ewebsite.repository.ChatRoomRepository;
 import com.devchangetheworld.ewebsite.service.ChatRoomService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequiredArgsConstructor

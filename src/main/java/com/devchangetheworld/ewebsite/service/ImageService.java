@@ -1,6 +1,6 @@
 package com.devchangetheworld.ewebsite.service;
 
-import com.devchangetheworld.ewebsite.dto.response.ImageResponseDTO;
+import com.devchangetheworld.ewebsite.dto.product.ImageResponseDTO;
 import com.devchangetheworld.ewebsite.entities.Image;
 import org.springframework.web.multipart.MultipartFile;
 

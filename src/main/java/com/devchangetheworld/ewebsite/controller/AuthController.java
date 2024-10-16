@@ -1,8 +1,8 @@
 package com.devchangetheworld.ewebsite.controller;
 
-import com.devchangetheworld.ewebsite.dto.request.LoginRequestDTO;
-import com.devchangetheworld.ewebsite.dto.response.ApiResponse;
-import com.devchangetheworld.ewebsite.dto.response.JwtResponseDTO;
+import com.devchangetheworld.ewebsite.dto.User.LoginRequestDTO;
+import com.devchangetheworld.ewebsite.dto.api_response.ApiResponse;
+import com.devchangetheworld.ewebsite.dto.jwt.JwtResponseDTO;
 import com.devchangetheworld.ewebsite.security.jwt.JwtUntils;
 import com.devchangetheworld.ewebsite.security.user.EShopUserDetail;
 import jakarta.validation.Valid;

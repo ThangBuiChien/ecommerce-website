@@ -1,6 +1,6 @@
 package com.devchangetheworld.ewebsite.mapper;
 
-import com.devchangetheworld.ewebsite.dto.response.ImageS3ResponseDTO;
+import com.devchangetheworld.ewebsite.dto.product.ImageS3ResponseDTO;
 import com.devchangetheworld.ewebsite.entities.ImageS3;
 import org.mapstruct.Mapper;
 

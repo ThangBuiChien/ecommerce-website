@@ -1,8 +1,8 @@
 package com.devchangetheworld.ewebsite.controller;
 
 
-import com.devchangetheworld.ewebsite.dto.response.ApiResponse;
-import com.devchangetheworld.ewebsite.dto.response.ImageS3ResponseDTO;
+import com.devchangetheworld.ewebsite.dto.api_response.ApiResponse;
+import com.devchangetheworld.ewebsite.dto.product.ImageS3ResponseDTO;
 import com.devchangetheworld.ewebsite.entities.ImageS3;
 import com.devchangetheworld.ewebsite.exception.ResourceNotFoundException;
 import com.devchangetheworld.ewebsite.service.ImageS3Service;

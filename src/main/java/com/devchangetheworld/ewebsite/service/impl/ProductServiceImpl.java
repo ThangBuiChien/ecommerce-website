@@ -1,9 +1,9 @@
 package com.devchangetheworld.ewebsite.service.impl;
 
-import com.devchangetheworld.ewebsite.dto.ProductSearchCriteria;
-import com.devchangetheworld.ewebsite.dto.request.AddProductRequestDTO;
-import com.devchangetheworld.ewebsite.dto.request.UpdateProductRequestDTO;
-import com.devchangetheworld.ewebsite.dto.response.ProductResponseDTO;
+import com.devchangetheworld.ewebsite.dto.product.ProductSearchCriteria;
+import com.devchangetheworld.ewebsite.dto.product.AddProductRequestDTO;
+import com.devchangetheworld.ewebsite.dto.product.UpdateProductRequestDTO;
+import com.devchangetheworld.ewebsite.dto.product.ProductResponseDTO;
 import com.devchangetheworld.ewebsite.entities.Product;
 import com.devchangetheworld.ewebsite.exception.ResourceNotFoundException;
 import com.devchangetheworld.ewebsite.mapper.AutoProductMapper;

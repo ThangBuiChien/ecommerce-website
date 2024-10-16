@@ -1,16 +1,14 @@
 package com.devchangetheworld.ewebsite.controller;
 
-import com.devchangetheworld.ewebsite.dto.ProductSearchCriteria;
-import com.devchangetheworld.ewebsite.dto.request.AddProductRequestDTO;
-import com.devchangetheworld.ewebsite.dto.request.UpdateProductRequestDTO;
-import com.devchangetheworld.ewebsite.dto.response.ApiResponse;
-import com.devchangetheworld.ewebsite.dto.response.ProductResponseDTO;
+import com.devchangetheworld.ewebsite.dto.product.ProductSearchCriteria;
+import com.devchangetheworld.ewebsite.dto.product.AddProductRequestDTO;
+import com.devchangetheworld.ewebsite.dto.product.UpdateProductRequestDTO;
+import com.devchangetheworld.ewebsite.dto.api_response.ApiResponse;
+import com.devchangetheworld.ewebsite.dto.product.ProductResponseDTO;
 import com.devchangetheworld.ewebsite.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

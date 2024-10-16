@@ -1,22 +1,18 @@
 package com.devchangetheworld.ewebsite.service.impl;
 
 import com.devchangetheworld.ewebsite.config.Config;
-import com.devchangetheworld.ewebsite.dto.request.PaymentRequestDTO;
-import com.devchangetheworld.ewebsite.dto.response.TransactionStatusResponseDTO;
+import com.devchangetheworld.ewebsite.dto.payment.PaymentRequestDTO;
+import com.devchangetheworld.ewebsite.dto.payment.TransactionStatusResponseDTO;
 import com.devchangetheworld.ewebsite.entities.Order;
 import com.devchangetheworld.ewebsite.enums.OrderStatus;
 import com.devchangetheworld.ewebsite.exception.ResourceNotFoundException;
 import com.devchangetheworld.ewebsite.mapper.AutoOrderMapper;
-import com.devchangetheworld.ewebsite.repository.CartRepository;
 import com.devchangetheworld.ewebsite.repository.OrderRepository;
 import com.devchangetheworld.ewebsite.service.VNPayService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;

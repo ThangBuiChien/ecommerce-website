@@ -1,6 +1,6 @@
 package com.devchangetheworld.ewebsite.specification;
 
-import com.devchangetheworld.ewebsite.dto.ProductSearchCriteria;
+import com.devchangetheworld.ewebsite.dto.product.ProductSearchCriteria;
 import com.devchangetheworld.ewebsite.entities.Product;
 import jakarta.persistence.criteria.Predicate;
 import org.springframework.context.annotation.Configuration;

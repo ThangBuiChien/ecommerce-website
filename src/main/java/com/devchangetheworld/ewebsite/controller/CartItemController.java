@@ -1,9 +1,9 @@
 package com.devchangetheworld.ewebsite.controller;
 
-import com.devchangetheworld.ewebsite.dto.request.CartItem.AddCartItemRequestDTO;
-import com.devchangetheworld.ewebsite.dto.request.CartItem.RemoveCartItemRequestDTO;
-import com.devchangetheworld.ewebsite.dto.request.CartItem.UpdateCartItemRequestDTO;
-import com.devchangetheworld.ewebsite.dto.response.ApiResponse;
+import com.devchangetheworld.ewebsite.dto.cart_item.AddCartItemRequestDTO;
+import com.devchangetheworld.ewebsite.dto.cart_item.RemoveCartItemRequestDTO;
+import com.devchangetheworld.ewebsite.dto.cart_item.UpdateCartItemRequestDTO;
+import com.devchangetheworld.ewebsite.dto.api_response.ApiResponse;
 import com.devchangetheworld.ewebsite.service.CartItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
