@@ -30,7 +30,7 @@ public class Product {
     //Check again the cascade in those many
     //cascade = CascadeType.ALL in Many side is so wrong
     //delete it ==> delete parent size (if orphan remove then it remove all)
-    @ManyToOne(/*fetch = FetchType.LAZY,*/ optional = false /*,cascade = CascadeType.ALL*/)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false /*,cascade = CascadeType.ALL*/)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 

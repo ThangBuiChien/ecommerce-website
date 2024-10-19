@@ -36,4 +36,12 @@ public class ChatRoomController {
         return chatRoomService.getAllUserIdInChatRoom(roomId);
     }
 
+    @DeleteMapping("room/{roomId}/message/{messageId}")
+    public ResponseEntity<ApiResponse> deleteMessage(@PathVariable Long roomId, @PathVariable Long messageId) {
+         chatRoomService.deleteMessageFromChatRoom(messageId, roomId);
+        return ResponseEntity.ok(ApiResponse.builder()
+                .message("Deleted messages successfully")
+                .build());
+    }
+
 }
