@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Add some CSS to style your email */
+        .container {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Payment Successful</h1>
+    </div>
+    <div class="content">
+        <p>Dear ${customerName},</p>
+        <p>Thank you for your payment! Your payment of ${amount} for order ${orderId} has been successfully processed.</p>
+        <p>If you have any questions, please contact us at support@example.com.</p>
+    </div>
+    <div class="footer">
+        <p>Best regards,</p>
+        <p>Your Company Team</p>
+    </div>
+</div>
+</body>
+</html>

@@ -8,12 +8,15 @@ import com.devchangetheworld.ewebsite.enums.OrderStatus;
 import com.devchangetheworld.ewebsite.exception.ResourceNotFoundException;
 import com.devchangetheworld.ewebsite.mapper.AutoOrderMapper;
 import com.devchangetheworld.ewebsite.repository.OrderRepository;
+import com.devchangetheworld.ewebsite.service.EmailService;
 import com.devchangetheworld.ewebsite.service.VNPayService;
+import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.net.URLEncoder;
@@ -27,6 +30,7 @@ public class VNPayServiceImpl implements VNPayService {
 
     private final OrderRepository orderRepository;
     private final AutoOrderMapper autoOrderMapper;
+    private final EmailService emailService;
     @Transactional
     @Override
     public PaymentRequestDTO createPaymentRequest(HttpServletRequest req, Long orderId) throws UnsupportedEncodingException {
@@ -135,6 +139,18 @@ public class VNPayServiceImpl implements VNPayService {
                             .orElseThrow(() -> new ResourceNotFoundException("order", "payId", orderId));
             order1.setOrderStatus(OrderStatus.PAID);
             orderRepository.save(order1);
+
+            try {
+                //send html email
+                emailService.sendHtmlFormatSuccessPayment(order1.getUser().getEmail(), "Payment success",
+                        order1.getUser().getFirstName() + " " + order1.getUser().getLastName(),
+                        order1.getTotalAmount().toString(), order1.getId().toString());
+            }
+            catch (MessagingException | IOException e) {
+                emailService.sendSimpleEmail(order1.getUser().getEmail(), "Payment success but error when send mail",
+                        "Do not worry:)");
+            }
+
 
             transactionStatusDTO.setStatus("Ok");
             transactionStatusDTO.setMessage("Successfully");
