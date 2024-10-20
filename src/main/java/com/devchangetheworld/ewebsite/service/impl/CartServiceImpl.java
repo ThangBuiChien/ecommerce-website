@@ -1,12 +1,10 @@
 package com.devchangetheworld.ewebsite.service.impl;
 
-import com.devchangetheworld.ewebsite.dto.response.CartResponseDTO;
+import com.devchangetheworld.ewebsite.dto.cart.CartResponseDTO;
 import com.devchangetheworld.ewebsite.entities.Cart;
-import com.devchangetheworld.ewebsite.entities.CartItem;
 import com.devchangetheworld.ewebsite.exception.ResourceNotFoundException;
 import com.devchangetheworld.ewebsite.mapper.AutoCartMapper;
 import com.devchangetheworld.ewebsite.repository.CartRepository;
-import com.devchangetheworld.ewebsite.service.CartItemService;
 import com.devchangetheworld.ewebsite.service.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

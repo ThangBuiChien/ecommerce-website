@@ -1,7 +1,7 @@
 package com.devchangetheworld.ewebsite.mapper;
 
 
-import com.devchangetheworld.ewebsite.dto.response.ImageResponseDTO;
+import com.devchangetheworld.ewebsite.dto.product.ImageResponseDTO;
 import com.devchangetheworld.ewebsite.entities.Image;
 import org.mapstruct.Mapper;
 

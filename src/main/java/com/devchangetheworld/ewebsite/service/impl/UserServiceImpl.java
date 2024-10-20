@@ -1,7 +1,7 @@
 package com.devchangetheworld.ewebsite.service.impl;
 
-import com.devchangetheworld.ewebsite.dto.request.AddUserRequestDTO;
-import com.devchangetheworld.ewebsite.dto.response.UserResponseDTO;
+import com.devchangetheworld.ewebsite.dto.User.AddUserRequestDTO;
+import com.devchangetheworld.ewebsite.dto.User.UserResponseDTO;
 import com.devchangetheworld.ewebsite.entities.User;
 import com.devchangetheworld.ewebsite.exception.ResourceNotFoundException;
 import com.devchangetheworld.ewebsite.mapper.AutoUserMapper;

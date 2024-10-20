@@ -1,9 +1,9 @@
 package com.devchangetheworld.ewebsite.service.impl;
 
-import com.devchangetheworld.ewebsite.dto.ProductSearchCriteria;
-import com.devchangetheworld.ewebsite.dto.request.AddProductRequestDTO;
-import com.devchangetheworld.ewebsite.dto.request.UpdateProductRequestDTO;
-import com.devchangetheworld.ewebsite.dto.response.ProductResponseDTO;
+import com.devchangetheworld.ewebsite.dto.product.ProductSearchCriteria;
+import com.devchangetheworld.ewebsite.dto.product.AddProductRequestDTO;
+import com.devchangetheworld.ewebsite.dto.product.UpdateProductRequestDTO;
+import com.devchangetheworld.ewebsite.dto.product.ProductResponseDTO;
 import com.devchangetheworld.ewebsite.entities.Product;
 import com.devchangetheworld.ewebsite.exception.ResourceNotFoundException;
 import com.devchangetheworld.ewebsite.mapper.AutoProductMapper;
@@ -15,6 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,6 +28,8 @@ public class ProductServiceImpl implements ProductService {
     private final AutoProductMapper autoProductMapper;
 
     private final ProductSpecification productSpecification;
+
+    @Transactional
     @Override
     public ProductResponseDTO createProduct(AddProductRequestDTO productRequestDTO) {
         Product product = autoProductMapper.toEntity(productRequestDTO);

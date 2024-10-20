@@ -1,7 +1,7 @@
 package com.devchangetheworld.ewebsite.service.impl;
 
-import com.devchangetheworld.ewebsite.dto.request.AddOrderItemRequestDTO;
-import com.devchangetheworld.ewebsite.dto.response.OrderResponseDTO;
+import com.devchangetheworld.ewebsite.dto.order.AddOrderItemRequestDTO;
+import com.devchangetheworld.ewebsite.dto.order.OrderResponseDTO;
 import com.devchangetheworld.ewebsite.entities.Order;
 import com.devchangetheworld.ewebsite.entities.OrderItem;
 import com.devchangetheworld.ewebsite.entities.User;

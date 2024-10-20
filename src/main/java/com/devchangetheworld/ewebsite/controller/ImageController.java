@@ -1,7 +1,7 @@
 package com.devchangetheworld.ewebsite.controller;
 
-import com.devchangetheworld.ewebsite.dto.response.ApiResponse;
-import com.devchangetheworld.ewebsite.dto.response.ImageResponseDTO;
+import com.devchangetheworld.ewebsite.dto.api_response.ApiResponse;
+import com.devchangetheworld.ewebsite.dto.product.ImageResponseDTO;
 import com.devchangetheworld.ewebsite.entities.Image;
 import com.devchangetheworld.ewebsite.service.ImageService;
 import lombok.RequiredArgsConstructor;

@@ -40,6 +40,11 @@ public class ChatRoom {
         chatMessage.setChatRoom(this);
     }
 
+    public void deleteMessage(ChatMessage chatMessage){
+        this.messages.remove(chatMessage);
+        chatMessage.setChatRoom(null);
+    }
+
     public void addParticipant(User user) {
         this.participants.add(user);
         user.getChatRooms().add(this);

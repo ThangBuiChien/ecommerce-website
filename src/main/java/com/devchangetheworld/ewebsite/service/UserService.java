@@ -1,10 +1,7 @@
 package com.devchangetheworld.ewebsite.service;
 
-import com.devchangetheworld.ewebsite.dto.request.AddUserRequestDTO;
-import com.devchangetheworld.ewebsite.dto.response.UserResponseDTO;
-import com.devchangetheworld.ewebsite.entities.User;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import com.devchangetheworld.ewebsite.dto.User.AddUserRequestDTO;
+import com.devchangetheworld.ewebsite.dto.User.UserResponseDTO;
 
 public interface UserService {
 

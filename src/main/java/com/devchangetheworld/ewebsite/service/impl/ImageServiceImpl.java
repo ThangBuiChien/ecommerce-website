@@ -1,7 +1,6 @@
 package com.devchangetheworld.ewebsite.service.impl;
 
-import com.devchangetheworld.ewebsite.dto.response.ImageResponseDTO;
-import com.devchangetheworld.ewebsite.dto.response.ProductResponseDTO;
+import com.devchangetheworld.ewebsite.dto.product.ImageResponseDTO;
 import com.devchangetheworld.ewebsite.entities.Image;
 import com.devchangetheworld.ewebsite.entities.Product;
 import com.devchangetheworld.ewebsite.exception.ResourceNotFoundException;

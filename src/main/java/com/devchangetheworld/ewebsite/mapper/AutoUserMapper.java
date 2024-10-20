@@ -1,7 +1,7 @@
 package com.devchangetheworld.ewebsite.mapper;
 
-import com.devchangetheworld.ewebsite.dto.request.AddUserRequestDTO;
-import com.devchangetheworld.ewebsite.dto.response.UserResponseDTO;
+import com.devchangetheworld.ewebsite.dto.User.AddUserRequestDTO;
+import com.devchangetheworld.ewebsite.dto.User.UserResponseDTO;
 import com.devchangetheworld.ewebsite.entities.User;
 import org.mapstruct.Mapper;
 

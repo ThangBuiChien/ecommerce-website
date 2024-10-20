@@ -1,7 +1,7 @@
 package com.devchangetheworld.ewebsite.service;
 
-import com.devchangetheworld.ewebsite.dto.request.PaymentRequestDTO;
-import com.devchangetheworld.ewebsite.dto.response.TransactionStatusResponseDTO;
+import com.devchangetheworld.ewebsite.dto.payment.PaymentRequestDTO;
+import com.devchangetheworld.ewebsite.dto.payment.TransactionStatusResponseDTO;
 import jakarta.servlet.http.HttpServletRequest;
 
 import java.io.UnsupportedEncodingException;

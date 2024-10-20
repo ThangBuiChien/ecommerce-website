@@ -1,8 +1,7 @@
 package com.devchangetheworld.ewebsite.mapper;
 
-import com.devchangetheworld.ewebsite.dto.request.AddOrderItemRequestDTO;
-import com.devchangetheworld.ewebsite.dto.response.OrderItemResponseDTO;
-import com.devchangetheworld.ewebsite.dto.response.OrderResponseDTO;
+import com.devchangetheworld.ewebsite.dto.order.AddOrderItemRequestDTO;
+import com.devchangetheworld.ewebsite.dto.order.OrderItemResponseDTO;
 import com.devchangetheworld.ewebsite.entities.OrderItem;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

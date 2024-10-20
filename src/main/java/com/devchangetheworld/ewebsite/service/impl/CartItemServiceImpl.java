@@ -1,6 +1,5 @@
 package com.devchangetheworld.ewebsite.service.impl;
 
-import com.devchangetheworld.ewebsite.dto.response.CartItemResponseDTO;
 import com.devchangetheworld.ewebsite.entities.Cart;
 import com.devchangetheworld.ewebsite.entities.CartItem;
 import com.devchangetheworld.ewebsite.entities.Product;

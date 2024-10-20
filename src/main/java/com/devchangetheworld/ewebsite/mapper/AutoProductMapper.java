@@ -1,8 +1,8 @@
 package com.devchangetheworld.ewebsite.mapper;
 
-import com.devchangetheworld.ewebsite.dto.request.AddProductRequestDTO;
-import com.devchangetheworld.ewebsite.dto.request.UpdateProductRequestDTO;
-import com.devchangetheworld.ewebsite.dto.response.ProductResponseDTO;
+import com.devchangetheworld.ewebsite.dto.product.AddProductRequestDTO;
+import com.devchangetheworld.ewebsite.dto.product.UpdateProductRequestDTO;
+import com.devchangetheworld.ewebsite.dto.product.ProductResponseDTO;
 import com.devchangetheworld.ewebsite.entities.Product;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
