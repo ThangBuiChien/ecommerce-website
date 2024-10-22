@@ -1,0 +1,8 @@
+paging:
+  default-page-size: 10
+  default-page-number: 0
+  default-sort-by : "id"
+  default-sort-dir : "DESC"
+
+api:
+  prefix: api/v1
