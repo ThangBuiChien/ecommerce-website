@@ -25,6 +25,11 @@ jobs:
 
     # Step 3: Build and run tests with Maven
     - name: Build and Test with Maven
+      env:
+        SPRING_MAIL_USERNAME: ${{ secrets.SPRING_MAIL_USERNAME }}
+        SPRING_MAIL_PASSWORD: ${{ secrets.SPRING_MAIL_PASSWORD }}
+        AUTH_TOKEN_JWTSECRET: ${{ secrets.AUTH_TOKEN_JWTSECRET }}
+
       run: mvn -B clean install --file pom.xml -Dspring.profiles.active=prod  # This ensures the tests are run
 
     # Optional: Update the dependency graph
